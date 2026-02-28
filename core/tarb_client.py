@@ -386,7 +386,7 @@ class TarbClient:
                 logger.warning(f"FOK rejected: {error_msg}")
 
                 # GTC fallback
-                if STRATEGY.gct_fallback:
+                if STRATEGY.gtc_fallback:
                     return await self._execute_gtc_fallback(
                         token_id, price, amount_usd, market
                     )
@@ -425,7 +425,7 @@ class TarbClient:
             logger.info(f"GTC fallback placed: {order_id} @ {limit_price}")
 
             # Wait for fill or timeout
-            await asyncio.sleep(STRATEGY.gct_timeout_secs)
+            await asyncio.sleep(STRATEGY.gtc_timeout_secs)
             filled = await self._verify_fill(order_id)
 
             if filled:

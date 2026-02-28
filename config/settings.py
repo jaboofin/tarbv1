@@ -142,8 +142,8 @@ class StrategyConfig:
 
     # ── Order Execution ──
     order_type: str = "FOK"                # FOK first, fallback to GTC
-    gct_fallback: bool = True              # If FOK fails, try GTC with tight price
-    gct_timeout_secs: int = 5              # Cancel GTC if not filled in 5s
+    gtc_fallback: bool = True              # If FOK fails, try GTC with tight price
+    gtc_timeout_secs: int = 5              # Cancel GTC if not filled in 5s
     fill_verify_delay_secs: float = 1.0    # Wait before verifying fill
 
     # ── Conviction Scoring ──
